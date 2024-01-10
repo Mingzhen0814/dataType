@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+        function foo(method){
+            var pika = method();
+            console.log(pika); 
+            return "執行完畢";
+        }
+        
+        var x = foo( function(){console.log('測試A')} );
+        var y = foo( function(){console.log('測試B')} );
+        console.log(x); // 執行完畢
+        console.log(y); // 執行完畢
+    </script>
+    <pre>
+        Q: 若 第10行 的 pika 期待結果為 皮卡丘 ，  第14行和第15行該如何修改?
+        A: 
+    </pre>
+
+</body>
+</html>

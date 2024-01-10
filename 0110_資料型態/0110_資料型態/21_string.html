@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <p id="luffy">魯夫</p>
+    <p id="chopper">喬巴</p>
+    <script>
+        function foo(elementName){
+            var data = document.getElementById(elementName).innerHTML;
+            return data;
+        }
+        var x = foo('luffy');
+        var y = foo('chopper');
+        console.log(x); // 魯夫
+        console.log(y); // 喬巴
+    </script>
+    <pre>
+        Q: 請練習說明為什麼x會得到魯夫、y會得到喬巴?
+        A: 
+    </pre>
+
+</body>
+</html>
