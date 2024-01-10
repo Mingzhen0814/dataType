@@ -11,8 +11,8 @@
             return "執行完畢";
         }
         
-        var x = foo( function(){console.log('測試A')} );
-        var y = foo( function(){console.log('測試B')} );
+        var x = foo( function(){console.log('測試A');return "皮卡丘"} );
+        var y = foo( function(){console.log('測試B');return "皮卡丘"} );
         console.log(x); // 執行完畢
         console.log(y); // 執行完畢
     </script>

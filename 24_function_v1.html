@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <script>
+        function foo(method) {
+            method();
+            return "執行完畢";
+        }
+
+        var x = foo(function () { console.log('測試A') });
+        var y = foo(function () { console.log('測試B') });
+        console.log(x); // 執行完畢
+        console.log(y); // 執行完畢
+    </script>
+    <pre>
+        Q: 請練習說明為什麼x會得到執行完畢、y會得到執行完畢?
+        A: 設定foo()函式，可以接收method參數並執行method函式，再回傳"執行完畢"的字串
+        透過呼叫執行foo()函式，接收函式執行console.log分別輸出"測試A"與"測試B"的字串，最後再分別回傳"執行完畢"的字串至變數x與變數y 
+
+        Q: 請練習說明為什麼log依照順序出現「測試A、測試b、執行完畢、執行完畢」
+        A:ChatGPT-> 
+        1. 呼叫 foo 函數時，method 被執行：
+            對於 x，method 是一個匿名函數，執行後輸出"測試A"。
+            對於 y，method 是另一個匿名函數，執行後輸出"測試B"。
+        2. method 被執行的同時，console.log 直接在該匿名函數內部執行：
+            在 x 的情況下，"測試A" 被輸出到控制台。
+            在 y 的情況下，"測試B" 被輸出到控制台。
+        3. foo 函數返回 "執行完畢" 之後，再次輸出到控制台：
+            接著，foo 函數返回"執行完畢"，這兩次的返回值分別被輸出到控制台。
+        因此，由於 JavaScript 的事件循環（Event Loop）機制，console.log 是非同步的，當匿名函數內部的 console.log 被呼叫時，它會被加入到事件佇列中，等到整個主執行緒的工作完成後才會執行。這就是為什麼 "測試A" 和 "測試B" 會先輸出，而 "執行完畢" 會在它們之後輸出的原因。
+    </pre>
+
+</body>
+
+</html>
